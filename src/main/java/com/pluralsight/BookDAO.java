@@ -97,7 +97,7 @@ public class BookDAO {
 
     public void updateBook(Book book) {
         try {
-            PreparedStatement statement = jdbcConnection.prepareStatement("UPDATE book SET title = ?,author = ?,price = ? WHERE id = ?");
+            PreparedStatement statement = jdbcConnection.prepareStatement("UPDATE book SET title = ?, author = ?, price = ? WHERE id = ?");
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getAuthor());
             statement.setFloat(3, book.getPrice());
