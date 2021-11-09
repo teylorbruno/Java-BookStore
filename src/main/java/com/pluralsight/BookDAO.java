@@ -94,4 +94,18 @@ public class BookDAO {
             System.out.println(sqlEx.getMessage());
         }
     }
+
+    public void updateBook(Book book) {
+        try {
+            PreparedStatement statement = jdbcConnection.prepareStatement("UPDATE book SET title = ?,author = ?,price = ? WHERE id = ?");
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getAuthor());
+            statement.setFloat(3, book.getPrice());
+            statement.setInt(4, book.getId());
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException sqlEx) {
+            System.out.println(sqlEx.getMessage());
+        }
+    }
 }
