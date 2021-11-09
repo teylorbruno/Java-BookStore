@@ -85,8 +85,9 @@ public class BookDAO {
     }
 
     public void deleteBook(int id) {
+        String sql = "DELETE FROM book WHERE id=?";
         try {
-            PreparedStatement statement = jdbcConnection.prepareStatement("DELETE FROM book WHERE id=?");
+            PreparedStatement statement = jdbcConnection.prepareStatement(sql);
             statement.setInt(1, id);
             statement.executeUpdate();
             statement.close();
